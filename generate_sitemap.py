@@ -9,11 +9,7 @@ CONTENT_DIR = "."
 
 # Template dasar sitemap
 SITEMAP_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 {}
 </urlset>
 """
@@ -38,18 +34,18 @@ def generate_sitemap():
                 continue  # Lewati jika bukan file HTML
 
             lastmod = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
-                
-                url_entry = f"""  <url>
+
+            url_entry = f"""  <url>
     <loc>{file_url}</loc>
     <lastmod>{lastmod}</lastmod>
     <changefreq>daily</changefreq>
-    <priority>0.8</priority>
+    <priority>0.7</priority>
   </url>"""
-                
-                url_entries.append(url_entry)
-    
+
+            url_entries.append(url_entry)
+
     sitemap_content = SITEMAP_TEMPLATE.format("\n".join(url_entries))
-    
+
     with open("sitemap.xml", "w", encoding="utf-8") as f:
         f.write(sitemap_content)
 
