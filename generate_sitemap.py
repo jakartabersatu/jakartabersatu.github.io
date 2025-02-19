@@ -1,8 +1,5 @@
 import os
-from datetime import datetime
-
-# Tambahkan pustaka pytz untuk mengatur zona waktu
-import pytz  
+from datetime import datetime, timedelta
 
 # URL dasar situs GitHub Pages Anda
 BASE_URL = "https://jakartabersatu.github.io"
@@ -25,9 +22,6 @@ SITEMAP_TEMPLATE = """<?xml version="1.0" encoding="UTF-8"?>
 def generate_sitemap():
     url_entries = []
 
-    # Atur zona waktu ke Jakarta (GMT+7)
-    jakarta_tz = pytz.timezone("Asia/Jakarta")
-
     for root, _, files in os.walk(CONTENT_DIR):
         for file in files:
             # Abaikan file GSC (google-verification.html, google*.html)
@@ -40,12 +34,11 @@ def generate_sitemap():
             elif file.endswith(".html"):
                 file_path = os.path.relpath(os.path.join(root, file), CONTENT_DIR)
                 file_url = f"{BASE_URL}/{file_path.replace(os.sep, '/')}"
-
             else:
                 continue  # Lewati jika bukan file HTML
 
-            # Waktu terakhir diperbarui dalam zona waktu Jakarta
-            lastmod = datetime.now(jakarta_tz).strftime("%Y-%m-%dT%H:%M:%S+07:00")
+            # Menggunakan waktu UTC + 7 jam untuk mendapatkan waktu GMT+7
+            lastmod = (datetime.utcnow() + timedelta(hours=7)).strftime("%Y-%m-%dT%H:%M:%S+07:00")
 
             url_entry = f"""  <url>
     <loc>{file_url}</loc>
