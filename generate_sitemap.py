@@ -28,7 +28,7 @@ def generate_sitemap():
                 file_path = os.path.relpath(os.path.join(root, file), CONTENT_DIR)
                 file_url = f"{BASE_URL}/{file_path.replace(os.sep, '/')}"
                 
-                lastmod = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+00:00")
+                lastmod = datetime.utcnow().strftime("%Y-%m-%dT%H:%M:%S+07:00")
                 
                 url_entry = f"""  <url>
     <loc>{file_url}</loc>
