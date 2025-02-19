@@ -42,8 +42,6 @@ def generate_sitemap():
             url_entry = f"""  <url>
     <loc>{file_url}</loc>
     <lastmod>{lastmod}</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1</priority>
   </url>"""
 
             url_entries.append(url_entry)
