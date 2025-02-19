@@ -21,9 +21,9 @@ jobs:
           for file in *.html; do
             if [ "$file" != "404.html" ]; then
               echo "  <url>" >> sitemap.xml
-              echo "    <loc>https://jakartabersatu.github.io/${file}</loc>" >> sitemap.xml
-              echo "    <changefreq>weekly</changefreq>" >> sitemap.xml
-              echo "    <priority>0.8</priority>" >> sitemap.xml
+              echo "    <loc>https://jakartabersatu.github.io/jkt/${file}</loc>" >> sitemap.xml
+              echo "    <changefreq>daily</changefreq>" >> sitemap.xml
+              echo "    <priority>1</priority>" >> sitemap.xml
               echo "  </url>" >> sitemap.xml
             fi
           done
