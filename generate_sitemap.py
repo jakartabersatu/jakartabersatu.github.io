@@ -2,7 +2,7 @@ import os
 from datetime import datetime
 
 # URL dasar situs GitHub Pages Anda
-BASE_URL = "jakartabersatu.github.io"
+BASE_URL = "https://jakartabersatu.github.io"
 
 # Folder tempat artikel disimpan (ubah jika berbeda)
 CONTENT_DIR = "."
