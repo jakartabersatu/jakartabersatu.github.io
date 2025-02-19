@@ -31,9 +31,9 @@ jobs:
           echo '</urlset>' >> sitemap.xml
 
       - name: Commit sitemap
-        run: |
-          git config --global user.name "jakartabersatu"
-          git config --global user.email "hendrikyss151@gmail.com"
-          git add sitemap.xml
-          git commit -m "Update sitemap.xml [Auto Generated]"
-          git push
+  run: |
+    git config --global user.name "jakartabersatu"
+    git config --global user.email "hendrikyss151@gmail.com"
+    git add sitemap.xml
+    git commit -m "Update sitemap.xml [Auto Generated]" || echo "No changes to commit"
+    git push https://jakartabersatu:${{ secrets.Github_Sitemap }}@github.com/jakartabersatu/jakartabersatu.github.io.git HEAD:main
