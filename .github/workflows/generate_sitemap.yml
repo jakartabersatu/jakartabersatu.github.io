@@ -36,4 +36,4 @@ jobs:
           git config --global user.email "hendrikyss151@gmail.com"
           git add sitemap.xml
           git commit -m "Update sitemap.xml [Auto Generated]" || echo "No changes to commit"
-          git push https://jakartabersatu:${{ secrets.PAT_TOKEN }}@github.com/jakartabersatu/jakartabersatu.github.io.git HEAD:main
+          git push https://jakartabersatu:${{ secrets.PAT_TOKEN }}@github.com/jakartabersatu/jakartabersatu.github.io HEAD:main
